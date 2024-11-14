@@ -1,0 +1,144 @@
+<div class="relative">
+  <app-info-header [title]="title" [info]="info"></app-info-header>
+  <button class="options-button">
+    <div (click)="toggleRotate()" class="div-button">
+      <mat-icon [@rotateIcon]="isRotated.toString()" class="{{ rorate }}"
+        >keyboard_arrow_down</mat-icon
+      >
+
+      {{buttonText}}
+
+      <span style="margin-left: 5px;"> {{ hospitalsNumber }} </span>      
+    </div>
+  </button>
+  <div *ngIf="showSearch" class="search-container">
+    <div class="search-input">
+      <input
+        type="text"
+        placeholder="חיפוש בתי חולים / מוסד"
+        (keyup)="searchHospitalsInput($event)"
+      />
+    </div>
+    <div class="checkBox-container">
+      <div *ngIf="checkedHospitals.length!==0" class="bottom-line">
+      <div
+      class="checkbox"
+      *ngFor="let hospital of checkedHospitals; let i = index"
+    >
+      <label>
+        {{ hospital }}
+        <input
+        [checked]="true"
+          type="checkbox"
+          (change)="onCheckboxChange(hospital, $event)"
+        />
+      </label>
+    </div>
+    </div>
+      <div
+        class="checkbox"
+        *ngFor="let hospital of unCheckedHospitals; let i = index"
+      >
+        <label>
+          {{ hospital }}
+          <input
+            type="checkbox"
+            (change)="onCheckboxChange(hospital, $event)"
+          />
+        </label>
+      </div>
+    </div>
+    <div class="search-buttons">
+      <button class="pointer" (click)="filterSearch()">אישור</button>
+      <button class="pointer" (click)="toggleRotate()">ביטול</button>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: right">
+    <div class="update">הנתונים מעודכנים לתאריך {{ update }} <span class="material-symbols-outlined error">
+error
+</span></div>
+  </div>
+  <div class="table-header">
+    <div class="flex">
+      <div
+        class="pointer relative"
+        style="margin-right: 20px"
+        (click)="sortData(0)"
+        [class.frame]="columnClicked === 0"
+      >
+        <div
+          *ngIf="column1ClickCounter !== 0"
+          [ngClass]="column1ClickCounter === 2 ? 'rorate' : ''"
+          class="material-symbols-outlined errow"
+        >
+          arrow_drop_up
+        </div>
+        תפוסת מחלקה פנימית %
+      </div>
+
+      <div
+        class="pointer relative"
+        (click)="sortData(1)"
+        [class.frame]="columnClicked === 1"
+      >
+        <div
+          *ngIf="column2ClickCounter !== 0"
+          [ngClass]="column2ClickCounter === 2 ? 'rorate' : ''"
+          class="material-symbols-outlined errow"
+        >
+          arrow_drop_up
+        </div>
+        תפוסה כללית %
+      </div>
+    </div>
+    <div
+      class="pointer relative"
+      (click)="sortData(2)"
+      [class.frame]="columnClicked === 2"
+    >
+      <span
+        *ngIf="column3ClickCounter !== 0"
+        [ngClass]="column3ClickCounter === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined errow"
+      >
+        arrow_drop_up
+      </span>
+      בית חולים
+    </div>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="hospitalsInfoSub">
+      <ng-container matColumnDef="column1">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container">
+            <div class="color">{{ element.column1 }}%</div>
+            <div class="precente-box">
+              <div class="full" [style.width.%]="element.column1"></div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="column2">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container">
+            <div class="color">{{ element.column2 }}%</div>
+            <div class="precente-box">
+              <div class="full" [style.width.%]="element.column2"></div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="column3">
+        <td class="column33 color" mat-cell *matCellDef="let element">
+          {{ element.column3 }}
+        </td>
+      </ng-container>
+
+      <tr
+        class="td"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<!-- <div>
+
+    <div class="header">
+     
+        <div class="flex-header">
+     <div>
+<p>{{title}}</p>
+    </div>              
+  <div class="cursor"><mat-icon>more_vert</mat-icon></div>  
+  <div class="share-downloud">
+   <div class="share-div">לשיתוף <div class="icon-border"><mat-icon class="icon">share</mat-icon></div></div> 
+    <div class="share-div downloud">להורדה<div class="icon-border"><mat-icon class="icon">arrow_downward</mat-icon></div></div>
+  </div>
+
+
+        <div class="flex">
+
+    <div  (mouseover)="show=true" (mouseout)="show=false"><mat-icon>error</mat-icon> </div>
+     <div *ngIf="show"   class="info-hover" ><div (mouseover)="show=true" (mouseout)="show=false">{{info}}</div>    
+
+        </div>    
+
+    </div>
+    <div class="hide">
+    <mat-icon>keyboard_arrow_up</mat-icon>
+    <mat-icon>keyboard_arrow_down</mat-icon>
+    <mat-icon>arrow_drop_down</mat-icon>
+    </div>
+</div> -->
+<div [ngClass]="withDownloadShareButton?'padding':''" class="header" >
+    <div class="flex-header">
+        <div *ngIf="withDownloadShareButton">
+<div class="cursor" (click)="clickOnDounloudIcon()"><mat-icon>more_vert</mat-icon></div>  
+<div *ngIf="showDownloudShare" class="share-downloud" (mouseleave)="showDownloudShare=false">
+<div class="share-div" (click)="clickOnDounloudIcon()">לשיתוף <div class="icon-border"><mat-icon class="icon">share</mat-icon></div></div> 
+<div class="share-div downloud" (click)="clickOnDounloudIcon()">להורדה<div class="icon-border"><mat-icon class="icon">arrow_downward</mat-icon></div></div>
+</div>
+</div>
+
+    <div class="flex">
+<div (mouseleave)="show=false">
+<div  (mouseover)="show=true"><mat-icon class="error">error</mat-icon> </div>
+ <div *ngIf="show"   class="info-hover" ngClass="withDownloadShareButton?'info-big':'info-tiny'" ><div (mouseover)="show=true">{{info}}</div></div>
+ </div>
+<div class="title">{{title}}</div>
+
+    </div>    
+
+    </div>    
+
+</div>
+

@@ -1,0 +1,246 @@
+<div class="relative">
+  <app-info-header [title]="title" [info]="info"></app-info-header>
+  <button class="options-button">
+    <div (click)="toggleRotate()" class="div-button">
+      <mat-icon [@rotateIcon]="isRotated.toString()" class="{{ rorate }}"
+        >keyboard_arrow_down</mat-icon
+      >
+      <div>{{ selectedTime }}</div>
+      {{ buttonText }}
+
+      <span style="margin-left: 5px"> {{ statesNumber }} </span>
+    </div>
+  </button>
+  <div *ngIf="showSearch" class="search-container">
+    <div class="search-input">
+      <input
+        type="text"
+        placeholder="חיפוש בתי חולים / מוסד"
+        (keyup)="searchstatesInput($event)"
+        (click)="onClickInput()"
+      />
+    </div>
+    <div class="checkBox-container">
+      <div
+        class="placeholder-search"
+        *ngIf="checkboxStates.length === 0 && uncheckboxStates.length === 0"
+      >
+        {{ placeholderText }}
+
+        <span style="margin-left: 5px"> {{ statesNumber }} </span>
+      </div>
+      <div *ngIf="checkboxStates.length !== 0" class="bottom-line">
+        <div
+          class="checkbox"
+          *ngFor="let state of checkboxStates; let i = index"
+        >
+          <label>
+            {{ state }}
+            <input
+              [checked]="true"
+              type="checkbox"
+              (change)="onCheckboxChange(state, $event)"
+            />
+          </label>
+        </div>
+      </div>
+      <div
+        class="checkbox"
+        *ngFor="let state of uncheckboxStates; let i = index"
+      >
+        <label>
+          {{ state }}
+          <input type="checkbox" (change)="onCheckboxChange(state, $event)" />
+        </label>
+      </div>
+      <div class="time-section">
+        <div style="font-weight: 700">זמן</div>
+        <div *ngFor="let date of time; let i = index" style="margin-top: 10px">
+          <label for="{{ date }}">{{ date }}</label>
+          <input
+            type="radio"
+            name="timeOption"
+            id="{{ date }}"
+            (change)="onRadioChange($event)"
+            [value]="date"
+            [checked]="selectedTime === date"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="search-buttons">
+      <button class="pointer" (click)="filterSearch()">אישור</button>
+      <button class="pointer" (click)="toggleRotate()">ביטול</button>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: right">
+    <div class="update">
+      הנתונים מעודכנים לתאריך {{ update }} , החל מהתאריך 13.04.20<span
+        class="material-symbols-outlined"
+      >
+        error
+      </span>
+    </div>
+  </div>
+
+  <div class="squer-legend">
+    <div class="flex">
+      מדינות בסיכון נמוך
+      <div class="squer yellow"></div>
+    </div>
+    <div class="flex">
+      מדינות בסיכון
+      <div class="squer orange"></div>
+    </div>
+    <div class="flex">
+      מדינות בסיכון מרבי
+      <div class="squer red"></div>
+    </div>
+  </div>
+
+  <div class="table-header">
+    <div
+      class="pointer relative"
+      (click)="sortData(6)"
+      [class.frame]="columnClicked === 2"
+    >
+      <span
+        *ngIf="columnClicks[5] !== 0"
+        [ngClass]="columnClicks[5] === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </span>
+      <span style="margin-left: 5px;">%</span>
+      <div>מאומתים מהנכנסים</div>
+    </div>
+    <div
+      class="pointer relative"
+      style="margin-right: 10px"
+      (click)="sortData(5)"
+      [class.frame]="columnClicked === 0"
+    >
+      <div
+        *ngIf="columnClicks[4] !== 0"
+        [ngClass]="columnClicks[4] === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </div>
+      אזרחים מאומתים
+    </div>
+
+    <div
+      class="pointer relative"
+      (click)="sortData(4)"
+      style="margin-right: 10px"
+      [class.frame]="columnClicked === 1"
+    >
+      <div
+        *ngIf="columnClicks[3] !== 0"
+        [ngClass]="columnClicks[3] === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </div>
+      זרים מאומתים
+    </div>
+
+    <div
+      class="pointer relative"
+      (click)="sortData(3)"
+      [class.frame]="columnClicked === 2"
+    >
+      <span
+        *ngIf="columnClicks[2] !== 0"
+        [ngClass]="columnClicks[2] === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </span>
+      נכנסים לישראל
+    </div>
+    <div
+      class="pointer relative state-header"
+      (click)="sortData(2)"
+      [class.frame]="columnClicked === 2"
+    >
+      <span
+        *ngIf="columnClicks[1] !== 0"
+        [ngClass]="columnClicks[1] === 2 ? 'rorate' : ''"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </span>
+      צבע
+    </div>
+    <div
+      class="pointer relative state-header"
+      (click)="sortData(1)"
+      [class.frame]="columnClicked === 2"
+    >
+      <span
+        *ngIf="columnClicks[0]%2 !== 0"
+        class="material-symbols-outlined filter-errow"
+      >
+        arrow_drop_up
+      </span>
+      מדינה
+    </div>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="statesInfoSub">
+      <ng-container matColumnDef="percent">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container color">
+            <div>{{ element.percent }}%</div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="color">
+        <td
+          mat-cell
+          *matCellDef="let element"
+          style="padding-right: 10px; padding-left: 30px"
+        >
+          <div class="squer" [ngClass]="element.color"></div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="entering">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container color">
+            <div>{{ element.entering }}</div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="verifyCitizens">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container color">
+            <div>{{ element.verifyCitizens }}</div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="verifyForeginers">
+        <td mat-cell *matCellDef="let element">
+          <div class="flex precenteg-box-container color">
+            <div>{{ element.verifyForeginers }}</div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <td class="state-table color" mat-cell *matCellDef="let element">
+          {{ element.name }}
+        </td>
+      </ng-container>
+
+      <tr
+        class="td"
+        mat-row
+        *matRowDef="let row; columns: displayedColumns"
+      ></tr>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+
+<div class="section3">
+    <h3>בדיקות</h3>    
+    <div class="flex">
+
+
+
+<div class="info-box">
+    <app-info-header [title]="chartTitle" [info]="info"></app-info-header>
+   <app-selection-button (sendRadioSelections)="changeData($event)" [title1]="title1" [radioSelection1]="radio1options"></app-selection-button>  
+   <div style="position: relative; width: 100%;">
+
+    <div class="comment">
+
+        <div>הנתונים אינם כוללים מידע על בדיקות לאבחון החלמה</div>
+           <span class="material-symbols-outlined error">
+            error
+            </span>     
+    </div>
+    <div class="legend">
+        <div style="display: flex;align-items: center;">
+            <div>חיוביים באנטיגן מוסדי</div>           
+            <div class="circle blue"></div>  
+ 
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        <div>PCRחיוביים ב</div>
+             <div class="circle green"></div>           
+    
+        </div>
+
+    </div>
+    <app-percentage-of-positive-subjects-graph   class="graph-position"></app-percentage-of-positive-subjects-graph>
+
+    </div> 
+    </div>
+
+    <div class="info-box">
+
+ 
+        </div>
+
+        <div class="info-box">
+
+            </div>
+
+        
+
+    </div>    
+    
+    </div>

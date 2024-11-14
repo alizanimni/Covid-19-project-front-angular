@@ -1,0 +1,234 @@
+.table-1 {
+  width: 100%;
+  height: 180px;
+
+  position: relative;
+}
+.color{
+  color: var(--color);
+}
+.table-container {
+  width: 100%;
+  color: var(--color);
+  overflow: auto;
+max-height: 190px;
+}
+::-webkit-scrollbar {
+  width: 4px;
+  overflow-y: scroll;
+  background: white;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: grey;
+  border-radius: 10px;
+}
+table {
+  text-align: right;
+}
+.table-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  background-color: var(--options-buttons-background);
+  height: 40px;
+  font-size: 13px;
+  margin-top: 5px;
+  justify-content: space-between;
+  white-space: nowrap;
+}
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.td {
+  font-weight: 700;
+  height: 40px;
+}
+td,
+th {
+  text-align: right;
+  font-size: 13px;
+}
+.column33 {
+  width: 39%;
+}
+.div-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.options-button {
+  position: relative;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+  border-radius: 15px;
+  padding: 5px 10px;
+  width: auto;
+  color: var(--color);
+  background-color: var(--options-buttons-background);
+  border: 1px solid #e4e9f2;
+  padding-left: 30px;
+  cursor: pointer;
+  margin-bottom: 28px;
+}
+.errow-icon {
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  font-size: 15px;
+  width: 15px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rorate-up {
+  rotate: 180deg;
+
+  transition: rotate 1s;
+}
+.rorate-down {
+  rotate: 0deg;
+
+  transition: rotate 1s;
+}
+.precente-box {
+  width: 35px;
+  height: 12px;
+  background-color: var(--precent-batary-color);
+  margin-left: 5px;
+  display: flex;
+  justify-content: right;
+}
+.precenteg-box-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.full {
+  background-color: rgb(101, 191, 215);
+  height: 100%;
+}
+.pointer {
+  cursor: pointer;
+}
+.search-container {
+  background-color: var(--box-backgroound);
+  width: 170px;
+  position: absolute;
+  right: 28px;
+  top:79px;
+  border: 1px solid rgb(218, 218, 218);
+  border-radius: 5px;
+  z-index: 100;
+}
+.checkBox-container {
+  margin: 2px;
+  border: 1px solid rgb(186, 185, 185);
+border-radius: 5px;
+  height: 200px;
+  overflow: auto;
+}
+.checkbox {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  margin: 2px;
+  input {
+    margin: 0;
+    margin-top: 8px;
+  }
+}
+.relative {
+  position: relative;
+}
+.search-buttons {
+  width: 100%;
+  background-color: var(--options-buttons-background);
+  button {
+    background-color: var(--options-buttons-background);
+    width: 50%;
+    border: none;
+    height: 30px;
+    border: 1px solid rgb(207, 207, 207);
+  }
+  button:active{
+    border: 2px solid black;
+  }
+}
+.search-input {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+
+  input {
+    
+    border-radius: 3px;
+    text-align: right;
+    border: 2px solid rgb(186, 185, 185);
+    padding: 1px;
+  }
+}
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+  transform:rotate(180deg);
+//    font-size: 12px; 
+//     position:absolute; 
+//     margin-top: 0.5px;
+//     margin-left: 2px;
+}
+.errow{
+    font-size: 18px;
+    width: 15px;
+    height: 15px;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: -3px;
+    top:5px;
+}
+.error{
+    font-size: 12px; 
+    position:absolute; 
+    margin-top: 0.5px;
+    margin-left: 2px;
+}
+.rorate{
+    transform:rotate(360deg);
+}
+
+.frame{
+  border: 2px solid var(--border-table);
+  border-radius: 5px;
+  width: auto;
+  padding: 4px;
+  padding-left: 12px;
+}
+.update{
+    font-size: 10px;
+
+    background-color: var(--options-buttons-background);
+    max-width: fit-content;
+    padding: 3px;
+    padding-right: 17px;
+    text-align: right;
+    margin-right: 25px;
+    margin-bottom: 2px;
+}
+.bottom-line{
+    border-bottom: 1px solid grey;
+    padding-bottom: 2px;
+}
+
+
+

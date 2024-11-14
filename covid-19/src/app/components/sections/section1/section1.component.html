@@ -1,0 +1,53 @@
+
+<div class="section3">
+    <h3>מדדים מרכזיים</h3>    
+    <div class="flex">
+
+
+
+        <div class="info-box">
+
+     
+        </div>
+        <div class="info-box">
+
+     
+        </div>
+<div class="info-box">
+    <app-info-header [title]="chartTitle" [info]="info"></app-info-header>
+   <app-selection-button
+   [title1]="title1" [radioSelection1]="radio1options" [checkBox]="true"
+   [title2]="title2" [radioSelection2]="radio2options"
+   (sendSelections)="changeDataBySelections($event)"></app-selection-button>  
+   <div style="position: relative; width: 100%;">
+    <div class="legend">
+
+        <div style="display: flex; align-items: center;">
+            <div>קל</div>
+                 <div class="circle dark-blue"></div>           
+        
+            </div>
+        <div style="display: flex;align-items: center;">
+            <div>בינוני</div>           
+            <div class="circle blue"></div>  
+ 
+        </div>
+
+        <div style="display: flex; align-items: center;">
+        <div>קשה</div>
+             <div class="circle green"></div>           
+    
+        </div>
+
+    </div>
+<app-graph   class="graph-position"></app-graph>
+    </div> 
+    </div>
+
+
+
+        
+
+    </div>    
+    
+    </div>

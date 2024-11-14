@@ -1,4 +1,4 @@
-<div>Hello</div>
-
+<app-header (darkOrLight)="toggleBackgroundColor()"></app-header>
+<app-home [ngClass]="isBackgroundDark?'dark':'light'"></app-home>
 
 <router-outlet></router-outlet>

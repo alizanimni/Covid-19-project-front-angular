@@ -1,0 +1,14 @@
+:host{
+    color: var(--color);
+
+}
+.info-box {
+   text-align: right;
+    margin: 30px 5px 40px;
+    padding:20px;
+    min-height: 210px;
+    min-width: 190px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px #00000040;
+  }

@@ -1,0 +1,189 @@
+.view-above-page {
+  text-align: right;
+  margin: 140px 20px 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgb(215, 212, 212);
+}
+.flex {
+  display: flex;
+  justify-content:right;
+  flex-wrap: wrap;
+}
+.info-box {
+  position: relative;
+  margin: 30px 5px 40px;
+  padding: 16px;
+
+  background-color: var(--backround);
+
+  border-radius: 20px;
+  box-shadow:var(--border);
+  border: var(--border);
+}
+
+
+.view-info-box {
+  width: 15%;
+  margin-left: 15px;
+}
+@media screen and (max-width: 1270px) {
+  .view-info-box {
+    width: 23%;
+    height: 220px;
+    margin: 30px 7px 5px;
+  }
+
+}
+@media screen and (max-width: 1060px) {
+  .view-info-box {
+    width: 23%;
+    height: 220px;
+  }
+
+}
+@media screen and (max-width: 750px) {
+  .view-info-box {
+    width: 47%;
+    height: 220px;
+  }
+
+}
+@media screen and (max-width: 523px) {
+  .view-info-box {
+    width: 45%;
+    height: 220px;
+  }
+
+}
+@media screen and (max-width: 420px) {
+  .view-info-box {
+    width: 90%;
+    height: 220px;
+  }
+
+}
+.covid-19-title {
+  margin-right: 8px;
+  font-weight: 700;
+  font-size: 24px;
+}
+.subject-title {
+  margin: 0;
+  margin-right: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+.box-title {
+  text-align: right;
+
+  margin: 0;
+  margin-right: 15px;
+  h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+}
+.error {
+  transform: rotate(180deg);
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.title {
+  display: flex;
+  justify-content: right;
+  text-align: right;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  h3 {
+    font-size: 16px;
+    margin: 0;
+  }
+}
+h2 {
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.bold {
+  font-weight: 700;
+}
+.detail {
+  justify-content: right;
+  margin-top: 5px;
+  display: flex;
+  font-size: 0.75rem;
+}
+.seriously-ill-num {
+  justify-content: right;
+  display: flex;
+  font-size: 13px;
+  align-items: center;
+}
+.number {
+  margin-left: 10px;
+}
+.vaccination-num {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  font-size: 18px;
+}
+h4 {
+  margin: 0;
+
+  margin: 5px;
+}
+.circle {
+  margin-left: 5px;
+  height: 9px;
+  width: 9px;
+  border-radius: 50%;
+}
+.red {
+  background-color: rgb(226, 29, 72);
+}
+.yellow {
+  background-color: rgb(230, 185, 87);
+}
+.width20 {
+  margin: 0;
+  width: 23%;
+  margin: 10px;
+  min-height: 100px;
+}
+@media screen and (max-width: 1100px) {
+  .width20 {
+    width: 22.5%;
+  }
+
+}
+@media screen and (max-width: 900px) {
+  .width20 {
+    width: 21.5%;
+  }
+
+}
+@media screen and (max-width: 750px) {
+  .width20 {
+    width: 46%;
+  }
+
+}
+@media screen and (max-width: 600px) {
+  .width20 {
+    width: 45%;
+  }
+
+}
+@media screen and (max-width: 520px) {
+  .width20 {
+    width: 90%;
+  }
+
+}
+.header {
+  position: relative;
+  top: -20px;
+  display: flex;
+  justify-content: right;
+}

@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "@angular/material": "^17.2.1",
+    "@ng-icons/core": "^27.1.0",
+    "@ng-icons/heroicons": "^27.1.0",
+    "angular-highcharts": "^17.0.1",
+    "highcharts": "^11.3.0",
+    "highcharts-angular": "^4.0.0"
+  }
+}
